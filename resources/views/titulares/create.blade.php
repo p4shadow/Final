@@ -31,8 +31,11 @@
         <input type="text" name="domicilio" value="{{ old('domicilio') }}" required>
         <br>
 
-        <button type="submit">Guardar</button>
+        <button type="submit" class="button">Guardar</button>
     </form>
 
-    <a href="{{ route('titulares.index') }}">Volver al listado de titulares</a>
+    <a href="{{ route('titulares.index') }}"" class="btn btn-primary">Volver al listado de titulares</a>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Inicio</a>
 @endsection
+
+

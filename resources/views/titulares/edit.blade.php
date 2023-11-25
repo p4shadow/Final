@@ -30,8 +30,9 @@
         <label for="domicilio">Domicilio:</label>
         <input type="text" name="domicilio" value="{{ old('domicilio', $titular->domicilio) }}" required>
 
-        <button type="submit">Guardar Cambios</button>
+        <button type="submit"class="button">Guardar Cambios</button>
     </form>
 
-    <a href="{{ route('titulares.index') }}">Volver al listado de titulares</a>
+    <a href="{{ route('titulares.index') }}"" class="btn btn-primary">Volver al listado de titulares</a>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Inicio</a>
 @endsection

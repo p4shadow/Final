@@ -19,7 +19,7 @@
         @method('PUT')
 
         <label for="titular_id">Titular:</label>
-        <input type="text" name="titular_id" value="{{ old('titular_id', $automotor->titular_id) }}" required>
+        <input type="text" name="titular_id" value="{{ old('titular_id', $automotor->titular->nombre) }}" required>
 
         <label for="marca">Marca:</label>
         <input type="text" name="marca" value="{{ old('marca', $automotor->marca) }}" required>
@@ -38,8 +38,9 @@
             <option value="camion">Camión</option>
           </select>
 
-        <button type="submit">Guardar Cambios</button>
+        <button type="submit"class="button">Guardar Cambios</button>
     </form>
 
-    <a href="{{ route('automotores.index') }}">Volver al listado de automotores</a>
+    <a href="{{ route('automotores.index') }}" class="btn btn-primary">Volver al listado de automotores</a>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Inicio</a>
 @endsection

@@ -25,6 +25,10 @@ class Automotor extends Model
 {
     return $this->belongsTo(Titular::class);
 }
+public function infracciones()
+{
+    return $this->hasMany(Infraccion::class);
 
+}
 
 }

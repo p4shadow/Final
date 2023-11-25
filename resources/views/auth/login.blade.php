@@ -4,7 +4,7 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+        <h3 class="text-center">Sistema de Registro del Automotor</h3>
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -43,5 +43,6 @@
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <h4 class="text-center">Solo personal autorizado</h4>
     </form>
 </x-guest-layout>

@@ -3,7 +3,7 @@
 @section('content')
     <h1>Listado de Titulares</h1>
 
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -21,23 +21,17 @@
                     <td>{{ $titular->dni }}</td>
                     <td>{{ $titular->domicilio }}</td>
                     <td>
-                        <a href="{{ route('titulares.show', $titular->id) }}">Ver</a>
-                        <a href="{{ route('titulares.edit', $titular->id) }}">Editar</a>
+                        <a href="{{ route('titulares.show', $titular->id) }}"class="button">Ver</a>
+                        <a href="{{ route('titulares.edit', $titular->id) }}"class="button2">Editar</a>
                     </td>
                 </tr>
             @endforeach
         </tbody>
+        
     </table>
     
-    <a href="{{ route('titulares.create') }}">Agregar Titular</a>
-@endsection
+    <a href="{{ route('titulares.create') }}"" class="btn btn-primary">Agregar Titular</a>
 
-@section('content')
-    <div class="jumbotron">
-        <h1 class="display-4">¡Bienvenido a tu Proyecto Laravel!</h1>
-        <p class="lead">Este es un hermoso template de estilo visual profesional.</p>
-        <hr class="my-4">
-        <p>Personaliza esta página según tus necesidades.</p>
-        <a class="btn btn-primary btn-lg" href="#" role="button">Leer más</a>
-    </div>
+    <a href="{{ route('dashboard') }}" class="btn btn-primary">Volver al Inicio</a>
+
 @endsection

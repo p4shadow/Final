@@ -16,24 +16,23 @@ class AutomotorController extends Controller
 
     public function create()
     {
-    //    return view('automotores.create');
     $titulares = Titular::all();
     return view('automotores.create', compact('titulares'));
 
     }
 
-   //  public function store(Request $request)
-   // {
-   //     $automotor = Automotor::create($request->all());
-        // Puedes redirigir a la vista de detalles o a la lista de automotores
-   //     return redirect()->route('automotores.show', $automotor->id);
-   // }
+    public function edit($id)
+    {
+        $automotor = Automotor::findOrFail($id);
+        return view('automotores.edit', compact('automotor'));
+    }
 
     public function store(Request $request)
     {
-        $titulares = Titular::all();
-        return view('automotores.create', compact('titulares'));
-
+       $automotor = Automotor::create($request->all());
+      
+        return redirect()->route('automotores.show', $automotor->id);
+        
         $request->validate([
             'marca' => 'required',
             'modelo' => 'required',
@@ -42,10 +41,6 @@ class AutomotorController extends Controller
             'titular_id' => 'required',
         ]);
 
-        $automotor = Automotor::create($request->all());
-    // Puedes redirigir a la vista de detalles o a la lista de automotores
-    return redirect()->route('automotores.show', $automotor->id);
-
         Automotor::create($request->all());
 
         return redirect()->route('automotores.index')->with('success', 'Automotor creado exitosamente');
@@ -53,7 +48,23 @@ class AutomotorController extends Controller
 
     public function show($id)
     {
-        $titular = Automotor::findOrFail($id);
+        $automotor = Automotor::findOrFail($id);
         return view('automotores.show', compact('automotor'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'patente' => 'required',
+            'tipo' => 'required',
+            'titular_id' => 'required',
+        ]);
+
+        $automotor = Automotor::findOrFail($id);
+        $automotor->update($request->all());
+
+        return redirect()->route('automotores.index')->with('success', 'Automotor actualizado exitosamente');
     }
 }

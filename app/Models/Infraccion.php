@@ -9,10 +9,20 @@ class Infraccion extends Model
 {
     use HasFactory;
 
-    protected $primarykey = "id";
+    protected $primaryKey = "id";
     
     protected $table = "infracciones";
 
     protected $fillable = ['fecha', 'descripcion', 'auto_id', 'tipo'];
     // Puedes agregar relaciones aquí si es necesario
+
+    public function titular()
+    {
+        return $this->belongsTo(Titular::class);
+    }
+
+    public function autos(){
+        return $this->belongsTo(Automotor::class, 'auto_id', 'id');
+    }
+
 }
